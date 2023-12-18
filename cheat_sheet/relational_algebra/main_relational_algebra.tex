@@ -1,0 +1,85 @@
+\section*{Relational Algebra Operations}
+
+\vspace{-0.1cm}
+
+\begin{center}
+\noindent
+\textit{Students Table:} ID, Name, Age, Major. \\
+\textit{Courses Table:} CourseID, Name, Credits.
+\end{center}
+
+
+\vspace{-0.7cm}
+\subsection*{Basic Operations}
+\vspace{-0.1cm}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+\leftskip-\dimexpr\leftmargin %%%
+
+% Select
+\item[]{\textbf{Select} $(\sigma)$:
+$\sigma_{\text{Age} > 21}(\text{Students})$. \\
+Selects rows where age larger than 21 years.}
+
+% Project
+\item[]{\textbf{Project} $(\pi)$:
+$\pi_{\text{Name, Major}}(\text{Students})$. \\
+Selects the `Name` and `Major` columns from the `Students` table.}
+
+% Union
+\item[]{\textbf{Union} $(\cup)$:
+$\pi_{\text{Name}}(\text{Students}) \cup \pi_{\text{Name}}(\text{Courses})$. \\
+Combines the `Name` columns from `Students` and `Courses` tables.}
+
+% Set Difference
+\item[]{\textbf{Set Difference} $(-)$:
+$\pi_{\text{Name}}(\text{Students}) - \pi_{\text{Name}}(\text{Courses})$. \\
+Rows in the first relation (Students) but not in the second (Courses).}
+
+% Cartesian Product
+\item[]{\textbf{Cartesian Product} $(\times)$:
+$\text{Students}_1 \times \text{Courses}_2$. \\
+Creates pairs of every student with every course. Every $item_1$ goes with every $item_2$.}
+
+% Rename
+\item[]{\textbf{Rename} $(\rho)$:
+$\rho_{\text{Pupils}(\text{ID, StudentName, StudentAge, Major})}(\text{Students})$. \\
+Renames the `Students` table to `Pupils` and its attributes accordingly.}
+
+% Intersection
+\item[]{\textbf{Intersection} $(\cap)$:
+$\pi_{\text{Name}}(\text{Students}) \cap \pi_{\text{Name}}(\text{Courses})$. \\
+Finds names common to both `Students` and `Courses`.}
+
+% Natural Join
+\item[]{\textbf{Natural Join} $(\bowtie)$:
+$\text{Students} \bowtie \text{Enrollments}$. \\
+Joins `Students` and `Enrollments` on common attributes/columns.}
+
+% Theta Join
+\item[]{\textbf{Theta Join}:
+$\text{Students} \bowtie_{\text{Students.Major = Courses.Name}} \text{Courses}$. \\
+Joins `Students` and `Courses` where the student's major matches the course name.}
+
+% Division
+\item[]{\textbf{Division}:
+$\text{Enrollments} \div \pi_{\text{CourseID}}(\sigma_{\text{Instructor = 'Dr. Smith'}}(\text{Courses}))$. \\
+Finds students who are enrolled in all courses taught by 'Dr. Smith'.}
+
+
+\item[]{\textbf{Projection, Join, Selection}: \\
+$\pi_{\text{StudentName, CourseName}} (\sigma_{\text{Age} > 21} (\text{Students} \bowtie \text{Enrollments} \bowtie \text{Courses}))$ \\
+Retrieves names of students older than 21 and their course names.}
+
+\item[]{\textbf{Union and Intersection}: \\
+\vspace{-0.2cm}
+\begin{center}
+$\left( \pi_{\text{Name}} (\sigma_{\text{Major} = 'CS'}(\text{Students})) \cup \pi_{\text{Name}} (\sigma_{\text{Age} > 21}(\text{Students})) \right) -  \left( \pi_{\text{Name}} (\sigma_{\text{Major} = 'CS'}(\text{Students})) \cap \pi_{\text{Name}} (\sigma_{\text{Age} > 21}(\text{Students})) \right)$ \\
+\end{center}
+Finds students either majoring in CS or older than 21, excluding those who meet both criteria.}
+
+\item[]{\textbf{Nested Operations}: \\
+$\pi_{\text{InstructorName}} (\sigma_{\text{CourseName} = 'Math'}(\text{Courses})) - \pi_{\text{InstructorName}} (\sigma_{\text{CourseName} = 'Physics'}(\text{Courses}))$ \\
+Identifies instructors teaching 'Math' but not 'Physics'.}
+
+\end{itemize}
