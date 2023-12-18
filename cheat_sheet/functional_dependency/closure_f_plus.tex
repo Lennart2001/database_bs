@@ -1,0 +1,21 @@
+\vspace{-0.3cm}
+\subsection*{Functional Dependency and Closure}
+\vspace{-0.1cm}
+
+\noindent
+Functional Dependency (FD) is like a rule that says one piece of data (like a person's name) can tell you another piece of data (like their birthdate). If you know the rule applies consistently, then you know the birthdate for each name without fail.
+
+\vspace{-0.3cm}
+\subsection*{Closure Set \( F+ \)}
+\vspace{-0.1cm}
+
+\noindent
+The closure \( F+ \) is like knowing all the possible things you can find out if you know a starting piece of information under the rules of FD. For example, if knowing someone's name tells you their birthdate, and knowing their birthdate tells you their astrological sign, then knowing a name ultimately tells you both birthdate and astrological sign—that's the closure.
+
+\noindent
+\textbf{Example:} If you have a functional dependency:
+\[ \text{Name} \rightarrow \text{Birthdate} \]
+and another:
+\[ \text{Birthdate} \rightarrow \text{Astrological Sign} \]
+Then the closure of Name would be:
+\[ \text{Name}+ = \{ \text{Name, Birthdate, Astrological Sign} \} \]

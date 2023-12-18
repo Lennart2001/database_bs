@@ -1,0 +1,27 @@
+\vspace{-0.6cm}
+\subsection*{Achieving Boyce-Codd Normal Form (BCNF)}
+\vspace{-0.1cm}
+
+\noindent
+BCNF is like organizing your closet so that every item has one and only one place where it belongs. A database is in BCNF if every piece of data can be uniquely identified by a 'key' (like a label for a shelf in your closet), and there's no confusion about where to find data or how it links to other data.
+
+\vspace{-0.3cm}
+\subsection*{Relation Decomposition}
+\vspace{-0.1cm}
+
+\noindent
+To get a database into BCNF, you might need to 'decompose' it, which means breaking it into smaller, well-organized parts. It's like deciding to separate your socks, shirts, and pants into different drawers instead of having them all in one place.
+
+\noindent
+\textbf{Example:} Suppose you have a table with courses and instructors, where the course code determines the instructor, and each instructor works in one department. This creates redundancy because the department can be determined by the course code.
+
+\[ \text{Course Code} \rightarrow \text{Instructor} \]
+\[ \text{Instructor} \rightarrow \text{Department} \]
+
+To decompose into BCNF, you create separate tables:
+\begin{itemize}
+    \item One for courses and instructors, where course code is a unique identifier.
+    \item Another for instructors and departments, where instructor is a unique identifier.
+\end{itemize}
+
+This way, each piece of information is found in only one place, and your data is well-organized.
