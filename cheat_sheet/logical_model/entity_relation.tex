@@ -1,0 +1,59 @@
+\vspace{-0.1cm}
+
+\noindent
+Entity-Relationship (ER) Models visually represent relational databases, showing entities (real-world items), attributes (entity properties), and relationships (entity connections).
+
+\vspace{-0.3cm}
+\subsection*{Components}
+\vspace{-0.1cm}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+\leftskip-\dimexpr\leftmargin %%%
+\item[] \textbf{Entity:} Represents real-world items. E.g., `Student`, `Course`.
+\item[] \textbf{Attribute:} Entity properties. E.g., `Student` has `Name`, `Age`, `Major`.
+\item[] \textbf{Relationship:} Connection between entities. E.g., `Enrollment` links `Student` and `Course`.
+\end{itemize}
+
+\vspace{-0.3cm}
+\subsection*{Entity Types}
+\vspace{-0.1cm}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+\leftskip-\dimexpr\leftmargin %%%
+\item[] \textbf{Strong Entity:} Exists independently. E.g., `Student`.
+\item[] \textbf{Weak Entity:} Depends on another entity. E.g., `Classroom` depends on `School`.
+\end{itemize}
+
+\vspace{-0.3cm}
+\subsection*{Attribute Types}
+\vspace{-0.1cm}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+\leftskip-\dimexpr\leftmargin %%%
+\item[] \textbf{Simple Attribute:} Indivisible. E.g., `Name`.
+\item[] \textbf{Composite Attribute:} Divisible into sub-parts. E.g., `Address` includes `Street`, `City`, `Zip`.
+\item[] \textbf{Derived Attribute:} Calculated from other attributes. E.g., `Age` from `Date of Birth`.
+\end{itemize}
+
+\vspace{-0.3cm}
+\noindent
+\subsection*{Relationship Types}
+\vspace{-0.1cm}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+\leftskip-\dimexpr\leftmargin %%%
+\item[] \textbf{Unary:} Within a single entity type. E.g., `Employee` supervises `Employee`.
+\item[] \textbf{Binary:} Between two entity types. E.g., `Student` enrolls in `Course`.
+\item[] \textbf{Ternary:} Among three entities. E.g., `Supplier` supplies `Part` to `Project`.
+\end{itemize}
+
+\vspace{-0.3cm}
+\subsection*{Cardinality Constraints}
+\vspace{-0.1cm}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+\leftskip-\dimexpr\leftmargin %%%
+\item[] \textbf{One-to-One:} Single relation each way. E.g., `Person` to `Passport`.
+\item[] \textbf{One-to-Many:} One to multiple relations. E.g., `Instructor` teaches multiple `Courses`.
+\item[] \textbf{Many-to-Many:} Multiple relations each way. E.g., `Students` enrolling in `Courses`.
+\end{itemize}
