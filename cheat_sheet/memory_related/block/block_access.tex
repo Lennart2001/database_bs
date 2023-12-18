@@ -1,0 +1,21 @@
+\vspace{-0.3cm}
+\subsection*{Block Access Policies}
+\vspace{-0.1cm}
+
+\noindent
+Block access policies are strategies used primarily in disk scheduling. They determine the order in which disk I/O requests are processed, which can significantly impact the overall performance of the system.
+
+\noindent
+\textbf{FIFO (First-In-First-Out)}: The oldest request in the queue is processed first.
+Simple to implement. Used in scenarios where fairness is important, and the load is evenly distributed.
+Can lead to suboptimal performance if older requests are not as critical as newer ones.
+
+\noindent
+\textbf{SJF (Shortest Job First)}: Requests are processed based on the length of the job, with shorter jobs being given priority.
+Minimizes the average waiting time and is efficient for systems with varying job sizes.
+Can lead to starvation of longer jobs and is difficult to implement, as predicting job length is challenging.
+
+\noindent
+\textbf{LOOK}: The disk arm moves in one direction, fulfilling all requests until there are no more in that direction, then reverses its direction.
+Reduces the movement of the disk arm, lowering the seek time compared to FIFO.
+If requests are heavily skewed to one end, it can lead to longer waiting times for some requests.

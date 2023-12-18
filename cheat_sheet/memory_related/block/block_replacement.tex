@@ -1,0 +1,17 @@
+\vspace{-0.3cm}
+\subsection*{Block Replacement Policies}
+\vspace{-0.1cm}
+
+\noindent
+Block replacement policies are techniques used in cache management. When the cache is full, and a new block needs to be loaded, these policies decide which existing block to replace.
+
+\noindent
+\textbf{FIFO (First-In-First-Out)}: The oldest block in the cache is replaced first.
+Simple to understand and implement.
+May not always remove the least useful block, leading to suboptimal cache performance.
+
+\noindent
+\textbf{LRU (Least Recently Used)}: Replaces the block that has been unused for the longest time.
+More effective than FIFO in many scenarios as it considers the recent usage pattern.
+Implementation can be more complex and resource-intensive than FIFO, as it requires tracking the usage history of each block.
+
