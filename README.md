@@ -10,11 +10,3 @@
 
 1) Clone the repository and run the `.tex` files locally, via TexShop
 2) Clone the repository and run the `.tex` files on OverLeaf
-
-## TODO
-
-#### Memory Related
-1) Disk Storage
-2) File Structure
-3) Indexing
-4) Transaction
