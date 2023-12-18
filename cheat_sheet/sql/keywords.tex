@@ -1,0 +1,72 @@
+\vspace{-0.3cm}
+\subsection*{Keywords}
+\vspace{-0.1cm}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+    \leftskip-\dimexpr\leftmargin %%%
+    \item[]{\textbf{SELECT}: Retrieves data from a database.}
+    \item[]{\textbf{FROM}: Specifies the table from where data is retrieved.}
+    \item[]{\textbf{WHERE}: Filters records based on specified conditions.}
+    \item[]{\textbf{JOIN}: Combines rows from two or more tables based on a related column.}
+    \item[]{\textbf{LEFT JOIN}: Returns all records from the left table, and matched records from the right table.}
+    \item[]{\textbf{RIGHT JOIN}: Returns all records from the right table, and the matched records from the left table.}
+    \item[]{\textbf{NATURAL JOIN}: Performs a join between two tables using all columns with the same names.}
+    \item[]{\textbf{INNER JOIN}: Returns rows when there is at least one match in both tables.}
+    \item[]{\textbf{GROUP BY}: Arranges identical data into groups.}
+    \item[]{\textbf{ORDER BY}: Sorts the result-set in ascending or descending order.}
+    \item[]{\textbf{HAVING}: Filters records on aggregated results.}
+    \item[]{\textbf{ROUND()}: Rounds a number to a specified number of decimal places - similar to COUNT().}
+    \item[]{\textbf{AVG()}: Calculates the average value of a numeric column.}
+    \item[]{\textbf{EXPLAIN}: Provides information about how MySQL executes a query.}
+    \item[]{\textbf{CREATE INDEX}: Creates an index on a table to improve query performance.}
+    \item[]{\textbf{LIKE}: Operator used in a WHERE clause to search for a specified pattern in a column.}
+    \item[]{\textbf{AND}: Combines two or more conditions in a WHERE clause.}
+    \item[]{\textbf{OR}: Allows for multiple conditions in a WHERE clause, where if any condition is true, the row is included.}
+    \item[]{\textbf{ASC}: Specifies ascending order in an ORDER BY clause.}
+    \item[]{\textbf{DESC}: Specifies descending order in an ORDER BY clause.}
+    \item[]{\textbf{IS NOT NULL}: Operator used in a WHERE clause to filter out rows where specified column's value is not NULL.}
+    \item[]{\textbf{\%}: Wildcard character used with LIKE operator to match any sequence of characters.}
+    \item[]{\textbf{PRIMARY KEY}: Constraint used to uniquely identify each row in a table.}
+    \item[]{\textbf{FOREIGN KEY}: Constraint used to link two tables together.}
+\end{itemize}
+
+\begin{lstlisting}[language=SQL]
+SELECT
+    b.title AS BookTitle,
+    CONCAT(a.first_name, ' ', a.last_name) AS AuthorName,
+    ROUND(AVG(s.sale_amount)) AS AverageSales,
+    COUNT(s.sale_id) AS TotalSales
+FROM
+    books b
+INNER JOIN authors a ON b.author_id = a.author_id
+LEFT JOIN sales s ON b.book_id = s.book_id
+WHERE
+    a.last_name LIKE 'R\%' AND
+    b.publication_year > 2000 AND
+    s.sale_id IS NOT NULL
+GROUP BY
+    b.book_id
+HAVING
+    COUNT(s.sale_id) > 50
+ORDER BY
+    TotalSales DESC,
+    b.title ASC;
+\end{lstlisting}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+\leftskip-\dimexpr\leftmargin %%%
+\item[]{\textbf{SELECT}: Starts the selection of data.}
+\item[]{\textbf{CONCAT()}: Concatenates the author's first and last name.}
+\item[]{\textbf{ROUND()}: Rounds the average sales amount to the nearest integer.}
+\item[]{\textbf{FROM}: Indicates the books table as the source.}
+\item[]{\textbf{INNER JOIN}: Joins the books with the authors where the author\_id matches.}
+\item[]{\textbf{LEFT JOIN}: Joins the books with the sales to include all books, even if there are no sales records.}
+\item[]{\textbf{WHERE}: Filters the result to authors with a last name starting with 'R' and books published after 2000.}
+\item[]{\textbf{LIKE 'R\%'}: Searches for authors with last names beginning with 'R'.}
+\item[]{\textbf{AND}: Combines multiple conditions in the WHERE clause.}
+\item[]{\textbf{GROUP BY}: Groups the result by book ID to calculate averages and counts per book.}
+\item[]{\textbf{HAVING}: Filters groups to include only those with more than 50 sales.}
+\item[]{\textbf{ORDER BY}: Orders the results first by TotalSales in descending order, then by BookTitle in ascending order.}
+\item[]{\textbf{ASC/DESC}: Specifies the order direction.}
+\item[]{\textbf{IS NOT NULL}: Ensures that only sales with valid sale IDs are included.}
+\end{itemize}
