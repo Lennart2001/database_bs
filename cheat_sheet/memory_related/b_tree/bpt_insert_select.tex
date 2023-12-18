@@ -1,0 +1,25 @@
+\vspace{-0.3cm}
+\subsection*{B+ Tree - Insert + Select}
+\vspace{-0.1cm}
+
+
+\noindent
+\textbf{Insert}
+
+\begin{enumerate}[noitemsep,leftmargin=*]
+\item{Start at the root. Traverse the tree to find the correct leaf node where the new key should be inserted.}
+\item{Insert the new key in the leaf node in sorted order.}
+\item{If the leaf node overflows (exceeds its maximum capacity), split it into two nodes and promote the middle key to the parent node.}
+\item{If the parent node overflows, repeat the split process up the tree.}
+\end{enumerate}
+
+
+\noindent
+\textbf{Select}
+
+\begin{enumerate}[noitemsep,leftmargin=*]
+\item{Begin at the root and traverse the tree, using the key values in each node to direct the search to the correct leaf node.}
+\item{Once the correct leaf is found, the key can be retrieved.}
+\end{enumerate}
+
+
